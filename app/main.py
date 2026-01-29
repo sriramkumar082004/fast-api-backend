@@ -19,13 +19,15 @@ if settings.BACKEND_CORS_ORIGINS:
 else:
     # Default to allow all for development if not specified
     app.add_middleware(
-        CORSMiddleware,
-        allow_origins=["*"],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
-
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://react-api-frontend-rho.vercel.app"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
 app.include_router(
     students.router, prefix=f"{settings.API_V1_STR}/students", tags=["students"]
