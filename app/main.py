@@ -3,27 +3,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.routers import auth, students, utils
 
-app = FastAPI(
-    title="FastAPI Backend"
-)
+app = FastAPI(title="FastAPI Backend")
 
 # Set all CORS enabled origins
-if settings.BACKEND_CORS_ORIGINS:
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
-else:
-    # Default to allow all for development if not specified
-    app.add_middleware(
+origins = [str(origin) for origin in settings.BACKEND_CORS_ORIGINS] or [
+    "http://localhost:5173",
+    "https://react-api-frontend-weld.vercel.app",
+]
+
+app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "https://react-api-frontend-rho.vercel.app"
-    ],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
