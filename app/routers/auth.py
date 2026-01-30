@@ -5,7 +5,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from app.api import deps
+from app.core import deps
 from app.core import security, config
 from app.core import jwt as jwt_handler
 from app.models.user import User

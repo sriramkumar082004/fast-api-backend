@@ -1,7 +1,7 @@
 from typing import Annotated
 from fastapi import APIRouter, File, UploadFile, HTTPException, Depends, Response
 from app.services import ocr, bg_removal
-from app.api import deps
+from app.core import deps
 from app.models.user import User
 
 router = APIRouter()

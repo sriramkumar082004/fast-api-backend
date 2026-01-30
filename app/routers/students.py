@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from uuid import UUID
 
-from app.api import deps
+from app.core import deps
 from app.models.user import User
 from app.schemas.student import StudentCreate, StudentResponse, StudentUpdate
 from app.services import student as student_service

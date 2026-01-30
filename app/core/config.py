@@ -5,7 +5,7 @@ from pydantic import AnyHttpUrl, field_validator, BeforeValidator
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "FastAPI Backend"
-    API_V1_STR: str = "/api/v1"
+    API_V1_STR: str = ""
     SECRET_KEY: str = "change_this_secret_key_in_production"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
