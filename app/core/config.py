@@ -18,6 +18,7 @@ class Settings(BaseSettings):
 
     # CORS
     BACKEND_CORS_ORIGINS: Any = []
+    VITE_API_BASE_URL: str = ""
 
     @field_validator("BACKEND_CORS_ORIGINS", mode="before")
     @classmethod
@@ -35,7 +36,7 @@ class Settings(BaseSettings):
         return v
 
     model_config = SettingsConfigDict(
-        env_file=".env", env_file_encoding="utf-8", case_sensitive=True
+        env_file=".env", env_file_encoding="utf-8", case_sensitive=True, extra="ignore"
     )
 
 
