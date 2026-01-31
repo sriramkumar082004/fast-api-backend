@@ -5,15 +5,9 @@ from app.routers import auth, students, utils
 
 app = FastAPI(title="FastAPI Backend")
 
-# Set all CORS enabled origins
-origins =[
-    "http://localhost:5173",
-    "https://react-api-frontend-weld.vercel.app",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=settings.BACKEND_CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
