@@ -18,7 +18,7 @@ class Settings(BaseSettings):
 
     # CORS
     BACKEND_CORS_ORIGINS: Any = []
-    VITE_API_BASE_URL: str = ""
+    VITE_API_URL: str = ""
 
     @field_validator("BACKEND_CORS_ORIGINS", mode="before")
     @classmethod
