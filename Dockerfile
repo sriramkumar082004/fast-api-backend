@@ -21,6 +21,7 @@ RUN useradd --create-home appuser && \
 
 # Set the working directory in the container
 WORKDIR /app
+ENV PYTHONPATH=/app
 RUN chown appuser:appuser /app
 
 # Switch to the non-root user

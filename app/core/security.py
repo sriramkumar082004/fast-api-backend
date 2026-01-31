@@ -15,14 +15,7 @@ def _truncate_password(password: str) -> str:
     # Truncate to 72 bytes, then find the last valid UTF-8 character boundary
     truncated = encoded[:72]
     # Decode with 'ignore' to drop any incomplete character at the end
-    # Then re-encode to ensure consistency
-    result = truncated.decode("utf-8", errors="ignore")
-
-    # Double-check the result is still within 72 bytes
-    while len(result.encode("utf-8")) > 72:
-        result = result[:-1]
-
-    return result
+    return truncated.decode("utf-8", errors="ignore")
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
