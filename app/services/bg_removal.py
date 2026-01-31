@@ -9,7 +9,7 @@ async def remove_background(image_file: bytes, filename: str) -> bytes:
 
     async with httpx.AsyncClient() as client:
         response = await client.post(
-            "https://api.apyhub.com/processor/image/change-background/file",
+         "https://api.apyhub.com/processor/image/remove-background/file",
             files={"image": (filename, image_file, "image/png")},
             headers={"apy-token": api_key},
             timeout=60.0,
